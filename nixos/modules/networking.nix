@@ -6,6 +6,7 @@ in {
   options.kevin.networking = {
     enable = mkEnableOption "kevins networking";
     avahi.enable = mkEnableOption "avahi";
+    ssh.enable = mkEnableOption "ssh";
     firewall.wireguard = mkEnableOption "wireguard exceptions";
     firewall.syncthing = mkEnableOption "syncthing exceptions";
   };
@@ -23,6 +24,17 @@ in {
       };
  
       networking.firewall.allowedUDPPorts = [ 5353 ];
+    })
+    (mkIf cfg.ssh.enable {
+      services.openssh = {
+        enable = true;
+        # require public key authentication for better security
+        passwordAuthentication = false;
+        kbdInteractiveAuthentication = false;
+        #permitRootLogin = "yes";
+      };
+      
+      networking.firewall.allowedTCPPorts = [ 22 ];
     })
     (mkIf cfg.firewall.wireguard {
       networking.firewall = {
