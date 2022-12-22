@@ -47,6 +47,8 @@ in {
       kevin.desktop.type = "gnome";
       kevin.yubikey.enable = true;
 
+      networking.networkmanager.enable = true;
+
       environment.systemPackages = with pkgs; [
         firefox
         league-of-moveable-type
@@ -77,9 +79,20 @@ in {
       users.users.kevin = {
         isNormalUser = true;
         description = "Kevin Kandlbinder";
-        extraGroups = [ "wheel" "docker" "dialout" ]; 
+        extraGroups = [ "wheel" "docker" "dialout" "networkmanager" ]; 
       };
       kevin.ssh.authorized.kevin = true;
+    })
+    (mkIf (cfg.defaults == "desktop") {
+      services.xserver.videoDrivers = [ "nvidia" ];
+      hardware.opengl.enable = true;
+
+      services.clamav.daemon.enable = true;
+      services.clamav.updater.enable = true;
+      #services.opensnitch.enable = true;
+      networking.hostName = "kevin-PC";
+
+      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
     })
     (mkIf (cfg.defaults == "laptop") {
       kevin.power.mode = "laptop";
