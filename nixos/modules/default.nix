@@ -42,6 +42,7 @@ in {
       kevin.networking.enable = true;
       kevin.networking.avahi.enable = true;
       kevin.networking.firewall.wireguard = true;
+      kevin.networking.firewall.kdeConnect = true;
       kevin.audio.enable = true;
       kevin.desktop.enable = true;
       kevin.desktop.type = "gnome";
@@ -52,6 +53,8 @@ in {
       environment.systemPackages = with pkgs; [
         firefox
         league-of-moveable-type
+        hunspell
+        hunspellDicts.de_DE
       ];
 
       programs.gnupg.agent = {

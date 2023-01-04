@@ -9,6 +9,7 @@ in {
     ssh.enable = mkEnableOption "ssh";
     firewall.wireguard = mkEnableOption "wireguard exceptions";
     firewall.syncthing = mkEnableOption "syncthing exceptions";
+    firewall.kdeConnect = mkEnableOption "KDE Connect exceptions";
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -58,6 +59,11 @@ in {
     (mkIf cfg.firewall.syncthing {
       networking.firewall.allowedTCPPorts = [ 22000 ];
       networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+    })
+    (mkIf cfg.firewall.kdeConnect {
+      networking.firewall.allowedUDPPortRanges = [
+        { from = 1714; to = 1764; }
+      ];
     })
   ]);
 }
