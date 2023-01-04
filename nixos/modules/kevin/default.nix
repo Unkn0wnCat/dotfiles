@@ -84,7 +84,7 @@ in {
         description = "Kevin Kandlbinder";
         extraGroups = [ "wheel" "docker" "dialout" "networkmanager" ]; 
       };
-      kevin.ssh.authorized.kevin = true;
+      kevin.ssh.authorized.kevin.users = ["kevin" "root"];
     })
     (mkIf (cfg.defaults == "desktop") {
       services.xserver.videoDrivers = [ "nvidia" ];
