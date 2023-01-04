@@ -8,6 +8,11 @@ in {
     avahi.enable = mkEnableOption "avahi";
     ssh.enable = mkEnableOption "ssh";
     firewall.wireguard = mkEnableOption "wireguard exceptions";
+    firewall.wireguardPort = mkOption {
+      type = types.int;
+      default = 51820;
+      description = "Port used by your Wireguard";
+    };
     firewall.syncthing = mkEnableOption "syncthing exceptions";
     firewall.kdeConnect = mkEnableOption "KDE Connect exceptions";
   };
@@ -42,17 +47,17 @@ in {
         # if packets are still dropped, they will show up in dmesg
         logReversePathDrops = true;
 
-        allowedUDPPorts = [ 51820 ];
+        allowedUDPPorts = [ cfg.firewall.wireguardPort ];
 
 
         # wireguard trips rpfilter up
         extraCommands = ''
-          ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN
-          ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN
+          ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --sport ${toString cfg.firewall.wireguardPort} -j RETURN
+          ip46tables -t mangle -I nixos-fw-rpfilter -p udp -m udp --dport ${toString cfg.firewall.wireguardPort} -j RETURN
         '';
         extraStopCommands = ''
-          ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport 51820 -j RETURN || true
-          ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport 51820 -j RETURN || true
+          ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --sport ${toString cfg.firewall.wireguardPort} -j RETURN || true
+          ip46tables -t mangle -D nixos-fw-rpfilter -p udp -m udp --dport ${toString cfg.firewall.wireguardPort} -j RETURN || true
         '';
       };
     })
