@@ -109,6 +109,12 @@ in {
         intel-media-driver
       ];
 
+      
+      specialisation.xmonad.configuration = {
+        kevin.desktop.type = mkForce "xmonad";
+      };
+
+
       boot.kernel.sysctl = {
         "vm.swappiness" = 1;
         "vm.vfs_cache_pressure" = 50;
