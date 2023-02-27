@@ -11,16 +11,13 @@ DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 echo "Installing NixOS modules..."
 
-if [ -d /etc/nixos/modules ]; then
-  echo "Directory /etc/nixos/modules exists - skipping."
-else
-  sudo ln -s $DIR/modules /etc/nixos/modules || echo "Could not link modules"
-fi
 
-if [ -d /etc/nixos/ssh ]; then
-  echo "Directory /etc/nixos/ssh exists - skipping."
-else
-  sudo ln -s $DIR/../ssh /etc/nixos/ssh || echo "Could not link ssh assets"
-fi
+sudo cp -r $DIR/../* /etc/nixos/ || echo "Could not copy modules"
+
+#if [ -d /etc/nixos/ssh ]; then
+#  echo "Directory /etc/nixos/ssh exists - skipping."
+#else
+#  sudo ln -s $DIR/../ssh /etc/nixos/ssh || echo "Could not link ssh assets"
+#fi
 
 echo "Done."

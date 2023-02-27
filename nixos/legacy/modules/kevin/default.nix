@@ -46,7 +46,7 @@ in {
       kevin.audio.enable = true;
       kevin.desktop.enable = true;
       kevin.desktop.type = "gnome";
-      kevin.yubikey.enable = true;
+      #kevin.yubikey.enable = true;
 
       networking.networkmanager.enable = true;
 
@@ -98,7 +98,7 @@ in {
       hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
     })
     (mkIf (cfg.defaults == "laptop") {
-      kevin.power.mode = "laptop";
+      #kevin.power.mode = "laptop";
       networking.hostName = "kevin-tp-l580";
 
       services.xserver.libinput.enable = true;
@@ -110,9 +110,9 @@ in {
       ];
 
       
-      specialisation.xmonad.configuration = {
-        kevin.desktop.type = mkForce "xmonad";
-      };
+      #specialisation.xmonad.configuration = {
+      #  kevin.desktop.type = mkForce "xmonad";
+      #};
 
 
       boot.kernel.sysctl = {

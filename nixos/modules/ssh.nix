@@ -4,10 +4,6 @@ let
   cfg = config.kevin.ssh;
   authorizedOpts = {name, config, ...}: {
     options = {
-      /*name = mkOption { 
-        type = types.passwdEntry types.str;
-        description = "Name of the user. Must be the name of a directory in /etc/nixos/ssh";
-      };*/
       users = mkOption {
         type = with types; listOf types.str;
         default = [];
@@ -37,7 +33,17 @@ in {
 
   config = mkMerge [
     (mkIf cfg.server.enable {
-      kevin.networking.ssh.enable = true;
+      services.openssh = {
+        enable = true;
+        # require public key authentication for better security
+        settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+        };
+        #permitRootLogin = "yes";
+      };
+      
+      networking.firewall.allowedTCPPorts = [ 22 ];
     })
     {
       users.users = mkMerge (map (name: (
