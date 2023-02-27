@@ -7,3 +7,8 @@ creation_rules:
     - age:
       - *admin_kevin
       - *target_kevin-tp
+  - path_regex: shared/secrets/[^/]+\.yaml$
+    key_groups:
+    - age:
+      - *admin_kevin
+      - *target_kevin-tp
