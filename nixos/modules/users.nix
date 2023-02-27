@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   imports = [ ./ssh.nix ];
 
   sops.secrets.password_kevin = {
