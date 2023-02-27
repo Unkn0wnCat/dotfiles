@@ -9,15 +9,16 @@ while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
-echo "Installing NixOS modules..."
+echo "Installing NixOS..."
 
+if [ -d /etc/nixos/ssh ]; then
+  echo "Directory /etc/nixos/ssh exists - skipping."
+else
+  sudo ln -s $DIR/../ssh /etc/nixos/ssh || echo "Could not link ssh assets"
+fi
 
-sudo cp -r $DIR/../* /etc/nixos/ || echo "Could not copy modules"
+sudo nixos-rebuild switch --flake '.#' --impure
 
-#if [ -d /etc/nixos/ssh ]; then
-#  echo "Directory /etc/nixos/ssh exists - skipping."
-#else
-#  sudo ln -s $DIR/../ssh /etc/nixos/ssh || echo "Could not link ssh assets"
-#fi
+#sudo cp -r $DIR/../* /etc/nixos/ || echo "Could not copy modules"
 
 echo "Done."
