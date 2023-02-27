@@ -1,0 +1,9 @@
+keys:
+  - &admin_kevin age1tyq4g2hfuy7ffl8lycl3yj6saxyk56z4xlmtz7krlq7djx6l7f9snd56q6
+  - &target_kevin-tp age17963wrexn2ahn0j39sg6h00wc7q7p4spt64yexg5tzk48x7vyv4sz47c0s
+creation_rules:
+  - path_regex: kevin-tp/secrets/[^/]+\.yaml$
+    key_groups:
+    - age:
+      - *admin_kevin
+      - *target_kevin-tp

@@ -14,7 +14,7 @@ let
       #services.envfs.enable = true;
 
       imports = [
-        #inputs.sops-nix.nixosModules.sops
+        inputs.sops-nix.nixosModules.sops
         ./modules/users.nix
         ./modules/common.nix
       ];
