@@ -27,6 +27,40 @@
 
   time.hardwareClockInLocalTime = true;
 
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
+  environment.systemPackages = with pkgs; [ virt-manager ];
+
+  environment.systemPackages = with pkgs; [
+    firefox
+    league-of-moveable-type
+    hunspell
+    hunspellDicts.de_DE
+  ];
+
+  services.syncthing = {
+    enable = true;
+    user = "kevin";
+    dataDir = "/home/kevin/Syncthing";
+    configDir = "/home/kevin/Syncthing/.config/syncthing";
+  };
+
+  services.fwupd.enable = true;
+  hardware.cpu.intel.updateMicrocode = true;
+
+  boot.supportedFilesystems = [ "ntfs" ];
+
+  services.printing.enable = true;
+  virtualisation.docker.enable = true;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.enable = true;
+
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
+
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
