@@ -20,12 +20,28 @@ let
       ];
     })
   ];
+  homeManagerSetup = [
+    ({...}: {
+      imports = [
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.sharedModules = [
+            inputs.sops-nix.homeManagerModules.sops
+          ];
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.kevin = import ../home-manager/kevin/home.nix;
+        }
+      ];
+
+    })
+  ];
 in
 {
   flake.nixosConfigurations = {
     kevin-tp = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = defaultModules ++ [
+      modules = defaultModules ++ homeManagerSetup ++ [
         inputs.home-manager.nixosModules.home-manager
         ./kevin-tp/configuration.nix
       ];

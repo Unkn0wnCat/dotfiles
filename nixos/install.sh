@@ -17,7 +17,11 @@ else
   sudo ln -s $DIR/../ssh /etc/nixos/ssh || echo "Could not link ssh assets"
 fi
 
+pushd $DIR
+
 sudo nixos-rebuild switch --flake '..#' --impure
+
+popd
 
 #sudo cp -r $DIR/../* /etc/nixos/ || echo "Could not copy modules"
 
