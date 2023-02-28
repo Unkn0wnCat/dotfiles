@@ -1,14 +1,21 @@
 keys:
   - &admin_kevin age1tyq4g2hfuy7ffl8lycl3yj6saxyk56z4xlmtz7krlq7djx6l7f9snd56q6
   - &target_kevin-tp age17963wrexn2ahn0j39sg6h00wc7q7p4spt64yexg5tzk48x7vyv4sz47c0s
+  - &target_kevin-pc age18zsr2dzd23g4x4dsqw5jzn64x7tsezqs72vj2d4hg7r9kxqxuyts69a7zj
 creation_rules:
   - path_regex: kevin-tp/secrets/[^/]+\.yaml$
     key_groups:
     - age:
       - *admin_kevin
       - *target_kevin-tp
+  - path_regex: kevin-pc/secrets/[^/]+\.yaml$
+    key_groups:
+    - age:
+      - *admin_kevin
+      - *target_kevin-pc
   - path_regex: shared/secrets/[^/]+\.yaml$
     key_groups:
     - age:
       - *admin_kevin
       - *target_kevin-tp
+      - *target_kevin-pc

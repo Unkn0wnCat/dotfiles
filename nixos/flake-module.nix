@@ -42,8 +42,13 @@ in
     kevin-tp = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = defaultModules ++ homeManagerSetup ++ [
-        inputs.home-manager.nixosModules.home-manager
         ./kevin-tp/configuration.nix
+      ];
+    };
+    kevin-pc = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = defaultModules ++ homeManagerSetup ++ [
+        ./kevin-pc/configuration.nix
       ];
     };
   };
