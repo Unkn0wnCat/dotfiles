@@ -55,11 +55,10 @@
     yarn
     nodejs
     neofetch
-    inkscape
+    inkscape-with-extensions
     jetbrains.goland
     jetbrains.idea-ultimate
     gnomeExtensions.gsconnect
-
   ];
 
   home.language = {
