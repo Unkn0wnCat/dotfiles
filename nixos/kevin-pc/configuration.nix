@@ -29,13 +29,13 @@
 
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
-  environment.systemPackages = with pkgs; [ virt-manager ];
 
   environment.systemPackages = with pkgs; [
     firefox
     league-of-moveable-type
     hunspell
     hunspellDicts.de_DE
+    virt-manager
   ];
 
   services.syncthing = {
