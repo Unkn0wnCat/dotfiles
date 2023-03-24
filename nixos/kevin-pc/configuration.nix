@@ -12,6 +12,8 @@
       ../modules/firewall/syncthing.nix
       ../modules/firewall/wireguard.nix
       ../modules/yubikey.nix
+      ../modules/gaming/steam.nix
+      ../modules/gaming/helpers.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -61,15 +63,8 @@
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
   networking.hostName = "kevin-pc";
   networking.hostId   = "5dbf8235";
 
   system.stateVersion = "23.05"; # No touchy. Locks defaults.
-
 }
