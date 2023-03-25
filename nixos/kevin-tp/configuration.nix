@@ -13,6 +13,8 @@
       ../modules/firewall/wireguard.nix
       ../modules/power/thinkpad.nix
       ../modules/yubikey.nix
+      ../modules/gaming/steam.nix
+      ../modules/gaming/helpers.nix
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
