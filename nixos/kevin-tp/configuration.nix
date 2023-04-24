@@ -15,7 +15,7 @@
       ../modules/yubikey.nix
       ../modules/gaming/steam.nix
       ../modules/gaming/helpers.nix
-      ../modules/mullvad.nix
+      #../modules/mullvad.nix
     ];
 
   sops.defaultSopsFile = ./secrets/secrets.yaml;
