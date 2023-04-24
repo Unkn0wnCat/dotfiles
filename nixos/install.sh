@@ -19,7 +19,7 @@ fi
 
 pushd $DIR
 
-sudo nixos-rebuild switch --flake '..#' --impure
+sudo nixos-rebuild switch --flake '..#'
 
 popd
 
