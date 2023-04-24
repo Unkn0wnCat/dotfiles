@@ -35,6 +35,19 @@
     git
   ];
 
+  sops.secrets.cloudflare_api_token = {
+    sopsFile = ./secrets/acme.yaml;
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "kevin@1in9.net";
+    certs."amon.srv.1in9.net" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = "/run/secrets/cloudflare_api_token";
+    };
+  };
+
   system.stateVersion = "22.11"; # No touchy.
 
 }
