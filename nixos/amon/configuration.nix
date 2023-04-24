@@ -103,7 +103,7 @@
 
   msgpipeline relay {
     destination $(relay_domains) {
-      deliver_to &remote_queue
+      deliver_to &relay_queue
     }
     default_destination {
       reject 550 5.1.1 "We do not relay for this domain"
