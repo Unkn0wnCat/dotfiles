@@ -49,9 +49,10 @@ in {
       users.users = mkMerge (map (name: (
         mkMerge (
           map (user: {
-            "${user}".openssh.authorizedKeys.keys = [
-              (lib.strings.splitString "\n" (builtins.readFile "../../ssh/${name}/authorized_keys"))
-            ];
+            "${user}".openssh.authorizedKeys.keys = 
+              (lib.strings.splitString "\n" 
+                (lib.strings.removeSuffix "\n" 
+                  (builtins.readFile (./. + "/../../ssh/${name}/authorized_keys"))));
           }) cfg.authorized."${name}".users
         )
       )) (attrNames cfg.authorized));
