@@ -68,7 +68,7 @@
   # configuration here https://github.com/foxcpp/maddy/blob/master/maddy.conf
   # Do not use this in production!
   
-  tls file /var/lib/acme/$(hostname)/fullchain.pem /var/lib/acme/$(hostname)/privkey.pem
+  tls file /var/lib/acme/$(hostname)/fullchain.pem /var/lib/acme/$(hostname)/key.pem
   
   auth.pass_table local_authdb {
     table sql_table {
@@ -90,7 +90,7 @@
     }
     optional_step file /etc/maddy/aliases
   }
-  
+
   msgpipeline local_routing {
     destination postmaster $(local_domains) {
       modify {
