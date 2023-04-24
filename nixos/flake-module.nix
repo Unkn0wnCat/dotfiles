@@ -51,5 +51,11 @@ in
         ./kevin-pc/configuration.nix
       ];
     };
+    amon = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = defaultModules ++ [
+        ./amon/configuration.nix
+      ];
+    };
   };
 }
