@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      
+      ../modules/server/docker.nix
     ];
     
   boot.loader.grub.enable = true;
