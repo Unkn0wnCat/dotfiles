@@ -46,6 +46,11 @@
 
   networking.networkmanager.enable = true;
 
+  networking.firewall = {
+	allowedTCPPorts = [ 62802 ];
+	allowedUDPPorts = [ 62802 ];
+  };
+
   environment.systemPackages = with pkgs; [
     firefox
     league-of-moveable-type
