@@ -63,10 +63,15 @@
       ];
       openFirewall = true;
 
+      tls.loader = "file";
+      tls.certificates = [{
+        keyPath = "/var/lib/acme/$(hostname)/key.pem";
+        certPath = "/var/lib/acme/$(hostname)/fullchain.pem";
+      }];
+
       config = ''
   $(relay_domains) = kevink.dev 1in9.net 1in1.net
   
-  tls file /var/lib/acme/$(hostname)/fullchain.pem /var/lib/acme/$(hostname)/key.pem
   
   auth.pass_table local_authdb {
     table sql_table {
