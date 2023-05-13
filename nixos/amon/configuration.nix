@@ -71,7 +71,6 @@
 
       config = ''
   $(relay_domains) = kevink.dev 1in9.net 1in1.net
-  $(anon_domains) = a.1in1.net *.a.1in1.net
   
   auth.pass_table local_authdb {
     table sql_table {
@@ -110,11 +109,12 @@
     destination $(relay_domains) {
       deliver_to &relay_queue
     }
-    destination $(anon_domains) {
-      deliver_to &anon_delivery
-    }
+    #destination $(anon_domains) {
+    #  deliver_to &anon_delivery
+    #}
     default_destination {
-      reject 550 5.1.1 "We do not relay for this domain"
+      #reject 550 5.1.1 "We do not relay for this domain"
+      deliver_to &anon_delivery # AnonAddy will handle everything else!  
     }
   }
   
