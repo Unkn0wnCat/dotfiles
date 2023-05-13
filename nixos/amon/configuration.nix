@@ -109,12 +109,8 @@
     destination $(relay_domains) {
       deliver_to &relay_queue
     }
-    #destination $(anon_domains) {
-    #  deliver_to &anon_delivery
-    #}
     default_destination {
-      #reject 550 5.1.1 "We do not relay for this domain"
-      deliver_to &anon_delivery # AnonAddy will handle everything else!  
+      reject 550 5.1.1 "We do not relay for this domain"
     }
   }
   
@@ -140,7 +136,8 @@
         deliver_to &relay
       }
       default_destination {
-        reject 550 5.1.1 "User doesn't exist"
+        deliver_to &anon_delivery # AnonAddy will handle everything else!
+        #reject 550 5.1.1 "User doesn't exist"
       }
     }
   }
