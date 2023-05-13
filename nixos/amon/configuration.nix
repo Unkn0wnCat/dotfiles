@@ -13,9 +13,26 @@
 
   networking.hostName = "amon";
   networking.domain = "srv.1in9.net";
-  
+  networking.enableIPv6 = true;  
+  networking.interfaces.enp1s0 = {
+    ipv4.addresses = [
+      {
+        address = "128.140.94.180";
+        prefixLength = 32;
+      }
+    ];
+    ipv6.addresses = [
+      {
+        address = "2a01:4f8:c17:6ccc::";
+        prefixLength = 64;
+      }
+    ];
+  };
+
   time.timeZone = "Europe/Berlin";
+ 
   
+ 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
