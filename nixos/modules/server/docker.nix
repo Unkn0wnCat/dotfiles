@@ -5,7 +5,7 @@
 
     daemon.settings = {
       ipv6 = true;
-      fixed-cidr-v6 = "fd00::/80";
+      fixed-cidr-v6 = "2001:db8:1::/64";
     };
   };
 }
