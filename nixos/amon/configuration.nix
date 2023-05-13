@@ -71,7 +71,7 @@
 
       config = ''
   $(relay_domains) = kevink.dev 1in9.net 1in1.net
-  
+  $(anon_domains) = anon.1in1.net 
   
   auth.pass_table local_authdb {
     table sql_table {
@@ -109,6 +109,9 @@
   msgpipeline relay {
     destination $(relay_domains) {
       deliver_to &relay_queue
+    }
+    destination $(anon_domains) {
+      deliver_to &anon_delivery
     }
     default_destination {
       reject 550 5.1.1 "We do not relay for this domain"
@@ -218,6 +221,17 @@
   #  }
   #}
 
+  target.smtp anon_delivery {
+    debug no
+    attempt_starttls yes
+    require_tls no
+    auth off
+    targets tcp://172.111.222.100:25 # AnonAddy Docker Container
+    connect_timeout 5m
+    command_timeout 5m
+    submission_timeout 12m
+  }
+
   target.smtp relay_delivery {
     debug no
     attempt_starttls yes
@@ -245,6 +259,10 @@
     }
   }
   
+
+  
+
+
   imap tcp://0.0.0.0:143 {
     auth &local_authdb
     storage &local_mailboxes
