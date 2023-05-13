@@ -71,7 +71,7 @@
 
       config = ''
   $(relay_domains) = kevink.dev 1in9.net 1in1.net
-  $(anon_domains) = anon.1in1.net 
+  $(anon_domains) = a.1in1.net *.a.1in1.net
   
   auth.pass_table local_authdb {
     table sql_table {
