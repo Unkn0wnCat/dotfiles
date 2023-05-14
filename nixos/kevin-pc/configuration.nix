@@ -63,6 +63,11 @@
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
 
+  programs.gnupg.agent = {
+    enable = true;
+    # enableSSHSupport = true;
+  };
+
   networking.hostName = "kevin-pc";
   networking.hostId   = "5dbf8235";
 
