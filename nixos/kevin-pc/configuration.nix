@@ -68,6 +68,9 @@
     # enableSSHSupport = true;
   };
 
+  programs.wireshark.enable = true;
+  users.users.kevin.extraGroups = [ "wireshark" ];
+
   networking.hostName = "kevin-pc";
   networking.hostId   = "5dbf8235";
 
