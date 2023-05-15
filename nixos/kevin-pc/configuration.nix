@@ -14,6 +14,7 @@
       ../modules/yubikey.nix
       ../modules/gaming/steam.nix
       ../modules/gaming/helpers.nix
+      ../modules/barrier.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

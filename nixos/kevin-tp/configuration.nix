@@ -15,6 +15,7 @@
       ../modules/yubikey.nix
       ../modules/gaming/steam.nix
       ../modules/gaming/helpers.nix
+      ../modules/barrier.nix
       #../modules/mullvad.nix
     ];
 
