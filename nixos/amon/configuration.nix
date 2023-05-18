@@ -48,6 +48,16 @@
           };
         }];
       };
+      kevink = {
+        version = 3;
+        map = [{
+          port = 80;
+          target = {
+            addr = "[::1]";
+            port = 8666;
+          };
+        }];
+      };
     };
     settings = {
       ClientUseIPv4 = false;
