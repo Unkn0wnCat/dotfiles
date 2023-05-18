@@ -34,7 +34,27 @@
 
   time.timeZone = "Europe/Berlin";
  
-  
+  services.tor = {
+    enable = true;
+    enableGeoIP = false;
+    relay.onionServices = {
+      kreig = {
+        version = 3;
+        map = [{
+          port = 80;
+          target = {
+            addr = "[::1]";
+            port = 8666;
+          };
+        }];
+      };
+    };
+    settings = {
+      ClientUseIPv4 = false;
+      ClientUseIPv6 = true;
+      ClientPreferIPv6ORPort = true;
+    };
+  };  
  
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
