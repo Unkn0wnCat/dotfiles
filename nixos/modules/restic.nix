@@ -19,16 +19,16 @@
 
   environment.etc = {
     "restic/backup-exclude.list" = {
-        source = "../../restic/backup-exclude.list";
+        source = ../../restic/backup-exclude.list;
     };
     "restic/backup-iexclude.list" = {
-        source = "../../restic/backup-iexclude.list";
+        source = ../../restic/backup-iexclude.list;
     };
     "restic/backup.list" = {
-        source = "../../restic/backup.list";
+        source = ../../restic/backup.list;
     };
     "restic/backup.sh" = {
-        source = "../../restic/backup.sh";
+        source = ../../restic/backup.sh;
     };
   };
 
