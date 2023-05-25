@@ -1,0 +1,21 @@
+# Personal Files
+/home
+/root
+
+# Essential System Files
+/var/lib/nixos
+/etc/ssh/ssh_host_ed25519_key
+/etc/ssh/ssh_host_ed25519_key.pub
+/etc/ssh/ssh_host_rsa_key
+/etc/ssh/ssh_host_rsa_key.pub
+/etc/machine-id
+
+# Services
+/srv
+/var/backup
+
+# Configurations
+/var/lib/bluetooth
+/var/lib/NetworkManager
+/var/lib/colord
+/var/lib/cups

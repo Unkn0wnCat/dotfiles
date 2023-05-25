@@ -1,0 +1,65 @@
+# Caches
+.cache
+cache2
+cache
+cached
+cachestorage
+cacheddata
+ledger-db
+.compose-cache
+
+# Logs
+logs
+log
+*.log
+
+# Package Managers
+.npm/_cacache
+node_modules
+bower_components
+vendor
+.conan
+.local/lib/python*
+
+# Remakeables
+built
+build
+rendered
+
+# Downloads
+download
+downloads
+
+# Virtual Folders
+resticMnt
+bupmnt
+
+# Apps
+/home/*/go
+/home/linuxbrew
+.itch
+.steam
+.local/share/Steam
+.config/itch/apps
+.jdks
+.minecraft/versions
+.minecraft/assets
+.minecraft/launcher
+.minecraft/libraries
+.minecraft/runtime
+.minecraft/mods
+
+# Unimportant configs
+.config/discord
+.config/Element
+
+# Backed up elsewhere
+.config/code
+/home/*/Nextcloud
+/home/kevin/Sync
+/home/kevin/Syncbox
+/home/kevin/tmp
+/home/kevin/tmp*
+
+# ???
+.m2

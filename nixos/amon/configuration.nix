@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
       ../modules/server/docker.nix
+      ../modules/restic.nix
     ];
     
   boot.loader.grub.enable = true;

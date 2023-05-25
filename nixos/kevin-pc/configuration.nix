@@ -15,6 +15,7 @@
       ../modules/gaming/steam.nix
       ../modules/gaming/helpers.nix
       ../modules/barrier.nix
+      ../modules/restic.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
