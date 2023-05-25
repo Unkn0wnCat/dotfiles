@@ -29,6 +29,9 @@
     };
     "restic/backup.sh" = {
         source = ../../restic/backup.sh;
+        mode = "0500";
+        user = config.users.users.restic.name;
+        group = config.users.users.restic.group;
     };
   };
 
