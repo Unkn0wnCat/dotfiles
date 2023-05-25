@@ -11,18 +11,10 @@ DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 
 echo "Installing NixOS..."
 
-#if [ -d /etc/nixos/ssh ]; then
-#  echo "Directory /etc/nixos/ssh exists - skipping."
-#else
-#  sudo ln -s $DIR/../ssh /etc/nixos/ssh || echo "Could not link ssh assets"
-#fi
-
 pushd $DIR
 
 sudo nixos-rebuild switch --flake '..#'
 
 popd
-
-#sudo cp -r $DIR/../* /etc/nixos/ || echo "Could not copy modules"
 
 echo "Done."
