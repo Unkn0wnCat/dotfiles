@@ -20,6 +20,8 @@ bower_components
 vendor
 .conan
 .local/lib/python*
+.giget
+.degit
 
 # Remakeables
 built
@@ -49,10 +51,16 @@ bupmnt
 .minecraft/runtime
 .minecraft/mods
 
-# Unimportant configs
+# Unimportant configs & other stuff
 .config/discord
 .config/Element
 .config/Signal
+.config/google-chrome
+.config/google-chrome-*
+.local/share/krita
+.var/app
+.vscode
+.npm
 
 # Backed up elsewhere
 .config/code
@@ -61,6 +69,9 @@ bupmnt
 /home/kevin/Syncbox
 /home/kevin/tmp
 /home/kevin/tmp*
+/home/kevin/.thunderbird
+/home/kevin/.mozilla/firefox
+.git
 
 # NoIndex
 *.noindex
