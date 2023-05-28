@@ -33,8 +33,9 @@ let
           home-manager.users.kevin = import ../home-manager/kevin/home.nix;
         }
       ];
-
     })
+    inputs.stylix.nixosModules.stylix
+    ./modules/stylix.nix
   ];
 in
 {
