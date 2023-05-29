@@ -29,6 +29,11 @@
   boot.initrd.luks.devices."luks-376a84ea-47d8-494b-aeb4-507ebac2c0fe".device = "/dev/disk/by-uuid/376a84ea-47d8-494b-aeb4-507ebac2c0fe";
   boot.initrd.luks.devices."luks-376a84ea-47d8-494b-aeb4-507ebac2c0fe".keyFile = "/crypto_keyfile.bin";
 
+  boot.initrd.availableKernelModules = [
+    "aesni_intel"
+    "cryptd"
+  ];
+
   time.hardwareClockInLocalTime = true;
 
   virtualisation.libvirtd.enable = true;
