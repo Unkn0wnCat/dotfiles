@@ -67,6 +67,7 @@ bupmnt
 /home/*/Nextcloud
 /home/kevin/Sync
 /home/kevin/Syncbox
+/home/kevin/*share
 /home/kevin/tmp
 /home/kevin/tmp*
 /home/kevin/.thunderbird
