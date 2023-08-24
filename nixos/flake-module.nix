@@ -34,8 +34,8 @@ let
         }
       ];
     })
-    inputs.stylix.nixosModules.stylix
-    ./modules/stylix.nix
+    #inputs.stylix.nixosModules.stylix
+    #./modules/stylix.nix
   ];
 in
 {
