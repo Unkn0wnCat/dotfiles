@@ -58,5 +58,11 @@ in
         ./amon/configuration.nix
       ];
     };
+    workspace = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = defaultModules ++ homeManagerSetup ++ [
+        ./workspace/configuration.nix
+      ];
+    };
   };
 }
