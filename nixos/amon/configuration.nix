@@ -31,6 +31,8 @@
   networking.defaultGateway = { address = "172.31.1.1"; interface = "enp1s0"; };
   networking.defaultGateway6 = { address = "fe80::1"; interface = "enp1s0"; };
   networking.nameservers = [ "8.8.8.8" ];
+  networking.firewall.allowedTCPPorts = [ 80 22 25 143 8666 443 587 546 ];
+  
 
   time.timeZone = "Europe/Berlin";
  
