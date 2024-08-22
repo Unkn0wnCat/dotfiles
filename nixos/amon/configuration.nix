@@ -120,7 +120,7 @@
       }];
 
       config = ''
-  $(relay_domains) = kevink.dev 1in9.net 1in1.net
+  $(relay_domains) = kevink.dev 1in9.net 1in1.net gearfm.de gearfm.gay
   
   auth.pass_table local_authdb {
     table sql_table {
