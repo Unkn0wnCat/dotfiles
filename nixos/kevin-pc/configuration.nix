@@ -68,7 +68,7 @@
   services.clamav.daemon.enable = true;
   services.clamav.updater.enable = true;
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   programs.gnupg.agent = {
     enable = true;

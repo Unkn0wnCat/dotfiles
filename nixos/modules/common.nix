@@ -12,7 +12,7 @@
     keyMap = "de";
   };
 
-  services.xserver.layout = "de";   
+  services.xserver.xkb.layout = "de";   
 
   environment.systemPackages = with pkgs; [
     vim

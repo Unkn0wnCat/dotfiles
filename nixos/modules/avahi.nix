@@ -1,7 +1,7 @@
 {
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     publish.enable = true;
     publish.domain = true;
     publish.addresses = true;
