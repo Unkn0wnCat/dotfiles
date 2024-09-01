@@ -3,7 +3,9 @@
 
   programs.gh = {
     enable = true;
-    enableGitCredentialHelper = true;
+    gitCredentialHelper = {
+      enable = true;
+    };
     settings = {
         aliases = {
           "clone" = "repo clone";
