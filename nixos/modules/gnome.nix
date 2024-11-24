@@ -6,8 +6,7 @@
   services.flatpak.enable = true;
 
   environment.systemPackages = [
-    pkgs.gnome.gnome-tweaks
-    pkgs.gnome.dconf-editor
-    pkgs.gnome.gnome-tweaks
+    pkgs.gnome-tweaks
+    pkgs.dconf-editor
   ];
 }

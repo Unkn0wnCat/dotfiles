@@ -65,9 +65,9 @@
     # enableSSHSupport = true;
   };
 
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
     vaapiIntel
     libvdpau-va-gl
     intel-media-driver
